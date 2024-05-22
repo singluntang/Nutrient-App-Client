@@ -59,7 +59,7 @@ React Native is a framework which write the code once and can builds 2 different
 
    * Build From Android Studio
 
-    1. At the `D:\` drive, type in the command: `git clone https://github.com/alantng/Nutrient-App-React-Native.git` to clone the project repository.
+    1. At the `D:\` drive, type in the command: `git clone https://github.com/singluntang/Nutrient-App-Client.git` to clone the project repository.
     2. Navigate to the project root direcotry `D:\NutrientAppComplete`
     3. Install the Package by typing `npm install`
     4. Open the android studio
@@ -91,7 +91,7 @@ React Native is a framework which write the code once and can builds 2 different
 
 * As we are using windows, we need to use iMac Operating system plus X-Code inorder to build the nutrient app for the IOS platform. Please remind we can only build the App and view on a Iphone simulator. To install it on a phsical devices, you need to have an ios developer account and archive to submit to App store. This is out of the project scope and will not be demonstrate here.
 
-    1. Open the terminal, at your home directory, create a directory `development`, navigate to the development directory. Type in the command: `git clone https://github.com/alantng/Nutrient-App-React-Native.git` to clone the project repository.
+    1. Open the terminal, at your home directory, create a directory `development`, navigate to the development directory. Type in the command: `git clone https://github.com/singluntang/Nutrient-App-Client.git` to clone the project repository.
     3. From the root folder `~/NutrientAppComplete`. Type `npm install` to install all the requrie packages.
     3. From the root folder navigate to the folder `ios`. Install the Package by typing `Pod install`
     4. If errors occurs which requires to acknowledge the X-code license. Type in `sudo xcodebuild -license`, then type in `agree`.
@@ -109,7 +109,7 @@ React Native is a framework which write the code once and can builds 2 different
 
 * The middleware server acts as an restAPI server which routes the SQL transactions and http requests to the backend SQL server. To start up the nutrient restAPI server please follow the below steps:
 
-   1. At the `D:\` drive, type in the command: `git clone https://github.com/alantng/Nutrient-Server-React-Native.git` to clone the project repository.
+   1. At the `D:\` drive, type in the command: `git clone https://github.com/singluntang/Nutrient-Server.git` to clone the project repository.
    2. Navigate to the project root directory `D:\NutrientServer`
    3. Install the Package by typing `npm install`
    4. There are some configurations settings you need to filled in. From the root directory, open the file `server.js`. Fill in your configuration settings for mySQL server from line 31 to 36. For the server port, open the file config.js, to set the server port.
