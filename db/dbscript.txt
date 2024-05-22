@@ -1,0 +1,135 @@
+DROP TABLE tblUserMenuIngredients;
+DROP TABLE tblIngredients;
+DROP TABLE tblMenus;
+DROP TABLE tblUnits;
+DROP TABLE tblUsers;
+
+CREATE TABLE tblUsers
+(userId VARCHAR(50),
+ userName VARCHAR(100) CHARSET utf8,
+ userEmail VARCHAR(100),
+ userPassword VARCHAR(30),
+ userRemark VARCHAR(200) CHARSET utf8,
+ updCount Int DEFAULT 0,
+ createAt DATETIME DEFAULT SYSDATE(),
+ CONSTRAINT pk_tblUsers_userId PRIMARY KEY (userId));
+
+CREATE TABLE tblUnits
+(unitId VARCHAR(50),
+ unitName VARCHAR(100) CHARSET utf8,
+ unitCode VARCHAR(10),
+ unitRemark VARCHAR(200) CHARSET utf8,
+ updCount Int DEFAULT 0,
+ createAt DATETIME DEFAULT SYSDATE(),
+ CONSTRAINT pk_tblUnits_unitId PRIMARY KEY (unitId));
+
+ CREATE TABLE tblIngredients
+(ingredientId VARCHAR(50),
+ userId VARCHAR(50),
+ unitId VARCHAR(50),
+ ingredientName VARCHAR(100) CHARSET utf8,
+ ingredientPortion float DEFAULT 0,
+ ingredientCalorie float DEFAULT 0,
+ ingredientProtein float DEFAULT 0,
+ ingredientCarbonhydrate float DEFAULT 0,
+ ingredientSugar float DEFAULT 0,
+ ingredientFat float DEFAULT 0,
+ ingredientSodium float DEFAULT 0,
+ ingredientCalcium float DEFAULT 0,
+ ingredientCholesterol float DEFAULT 0,
+ ingredientFibre float DEFAULT 0,
+ ingredientSaturateFat float DEFAULT 0,
+ ingredientTransFat float DEFAULT 0,
+ ingredientIron float DEFAULT 0,
+ ingredientZinc float DEFAULT 0,
+ ingredientMagnesium float DEFAULT 0,
+ ingredientPotasium float DEFAULT 0,
+ ingredientRemark VARCHAR(200) CHARSET utf8,
+ updCount Int DEFAULT 0,
+ createAt DATETIME DEFAULT SYSDATE(),
+ CONSTRAINT pk_tblIngredients_ingredientId_userId PRIMARY KEY (ingredientId, userId),
+ CONSTRAINT fk_tblIngredients_userId FOREIGN KEY (userId) REFERENCES tblUsers (userId),
+ CONSTRAINT fk_tblIngredients_unitId FOREIGN KEY (unitId) REFERENCES tblUnits (unitId));
+
+CREATE TABLE tblMenus
+(menuId VARCHAR(50), 
+ userId VARCHAR(50),
+ menuName VARCHAR(100) CHARSET utf8,
+ menuRemark VARCHAR(200) CHARSET utf8,
+ updCount Int DEFAULT 0,
+ createAt DATETIME DEFAULT SYSDATE(),
+ CONSTRAINT pk_tblMenus_menuId_userId PRIMARY KEY (menuId, userId),
+ CONSTRAINT fk_tblMenus_userId FOREIGN KEY (userId) REFERENCES tblUsers (userId));
+
+CREATE TABLE tblUserMenuIngredients
+(menuId VARCHAR(50), 
+ ingredientId VARCHAR(50),
+ userId VARCHAR(50),
+ unitId VARCHAR(50),
+ menuPortion float DEFAULT 0,
+ menuRemark VARCHAR(200) CHARSET utf8,
+ updCount Int DEFAULT 0,
+ createAt DATETIME DEFAULT SYSDATE(),
+ CONSTRAINT pk_tblUserMenuIngredients_menuId_ingredientId_userId_unitId PRIMARY KEY (menuId, ingredientId, userId, unitId),
+ CONSTRAINT fk_tblUserMenuIngredients_ingredientId FOREIGN KEY (ingredientId) REFERENCES tblIngredients (ingredientId) ON DELETE CASCADE,
+ CONSTRAINT fk_tblUserMenuIngredients_userId FOREIGN KEY (userId) REFERENCES tblUsers (userId),
+ CONSTRAINT fk_tblUserMenuIngredients_unitId FOREIGN KEY (unitId) REFERENCES tblUnits (unitId));
+
+//Demo Data
+
+INSERT INTO tblusers(userId, userName, userEmail, userPassword, userRemark) VALUES ("348aa54a-7257-434a-8f06-42fbb6d5428f", "alantang", "cokelight@gmail.com", "abc123", "");
+INSERT INTO tblUnits(unitId, unitName, unitCode, unitRemark) VALUES ('1','grams','gm','');
+INSERT INTO tblUnits(unitId, unitName, unitCode, unitRemark) VALUES ('2','milligram','mg','');
+INSERT INTO tblUnits(unitId, unitName, unitCode, unitRemark) VALUES ('3','ounze','oz','');
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('1','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Onion',100,39,1.1,9,4.2,0.1,4,4,0,1.7,0,0,0,0,17,146,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('2','348aa54a-7257-434a-8f06-42fbb6d5428f','1','cucumber',100,11,0.7,1.9,1.4,0.02,0,16,0,0,0.02,0,0,0,9.6,150,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('3','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Crab Stick (AOKI)',100,95,13.6,8.9,4.8,0.5,670,0,0,0,0.1,0,0,0,0,0,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('4','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Potato',100,76,1.37,17.72,5.74,0.14,3,4,0,2.5,0.03,0,0.72,0.2,18,230,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('5','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Apple',100,48,0.27,12.76,10.10,0.13,0,5,0,1.3,0.02,0,0.07,0.05,4,90,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('6','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Egg Red Skin',100,156,12.8,1.3,0,11.10,125.7,44,585,0,0,0,2.3,1.01,11,121,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('7','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Corn',90,80,3,19,5,1,10,5,0,1,0,0,0,0,0,0,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('8','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Salad Dressing',15,50,0,2,1,5,105,0,5,0,1,0,0,0,0,0,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('9','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Avocados',100,160,2,8.53,0.66,14.66,7,12,0,6.7,2.13,0,0.55,0.64,29,485,'');
+
+INSERT INTO tblingredients(ingredientId,userId,unitId,ingredientName,ingredientPortion,ingredientCalorie,ingredientProtein,ingredientCarbonhydrate,
+                         ingredientSugar,ingredientFat,ingredientSodium,ingredientCalcium,ingredientCholesterol,ingredientFibre,ingredientSaturateFat,
+                          ingredientTransFat,ingredientIron,ingredientZinc,ingredientMagnesium,ingredientPotasium,ingredientRemark)
+            VALUES('10','348aa54a-7257-434a-8f06-42fbb6d5428f','1','Dragon Fruit',100,56,1.1,9.6,7.6,1.4,0,5.8,0,1.7,0.13,0,0,0,32,270,'');
+            
+ INSERT INTO tblUserMenuIngredients(menuId, ingredientId, userId, unitId, menuPortion, menuRemark)
+ VALUES ("1", "3", "348aa54a-7257-434a-8f06-42fbb6d5428f", "1", 100, "")

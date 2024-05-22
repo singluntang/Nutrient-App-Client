@@ -1,0 +1,718 @@
+{
+	"info": {
+		"_postman_id": "cde98eb4-2e0d-49d6-be26-646d1e7c60a5",
+		"name": "Nutrient",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8414772"
+	},
+	"item": [
+		{
+			"name": "getUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{Host}}/get_user?username=alantang&password=abc123",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"get_user"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "alantang"
+						},
+						{
+							"key": "password",
+							"value": "abc123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"3\",\r\n    \"userName\": \"markLee\",\r\n    \"userEmail\": \"mark@yahoo.com\",\r\n    \"userPassword\": \"abc123\",\r\n    \"userRemark\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{Host}}/create_user",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"create_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getIngredientUnit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/get_ingredientunit",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"get_ingredientunit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUserIngredient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ingredientId\": \"3\",\r\n    \"userId\": \"348aa54a-7257-434a-8f06-42fbb6d5428f\",\r\n    \"unitId\": \"1\",\r\n    \"ingredientName\": \"Cucumber (grams)\",\r\n    \"ingredientPortion\": 100,\r\n    \"ingredientCalorie\": 11,\r\n    \"ingredientProtein\": 0.7,\r\n    \"ingredientCarbonhydrate\": 1.9,\r\n    \"ingredientSugar\": 1.4,\r\n    \"ingredientFat\": 0.02,\r\n    \"ingredientSodium\": 0,\r\n    \"ingredientCalcium\": 16,\r\n    \"ingredientCholesterol\": 0,\r\n    \"ingredientFibre\": 0,\r\n    \"ingredientSaturateFat\": 0.02,\r\n    \"ingredientTransFat\": 0,\r\n    \"ingredientIron\": 0,\r\n    \"ingredientZinc\": 0,\r\n    \"ingredientMagnesium\": 9.6,\r\n    \"ingredientPotasium\": 150,\r\n    \"ingredientRemark\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{Host}}/create_userIngrdient",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"create_userIngrdient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUserIngredient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/delete_userIngredient?ingredientId=89166b27-8157-4cb0-8b3d-207b7d172a3e&userId=348aa54a-7257-434a-8f06-42fbb6d5428f",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"delete_userIngredient"
+					],
+					"query": [
+						{
+							"key": "ingredientId",
+							"value": "89166b27-8157-4cb0-8b3d-207b7d172a3e"
+						},
+						{
+							"key": "userId",
+							"value": "348aa54a-7257-434a-8f06-42fbb6d5428f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_userIngredients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/get_userIngredients?userId=348aa54a-7257-434a-8f06-42fbb6d5428f",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"get_userIngredients"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "348aa54a-7257-434a-8f06-42fbb6d5428f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_userIngredient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"ingredientId\": \"1\",\r\n \"userId\": \"348aa54a-7257-434a-8f06-42fbb6d5428f\",\r\n \"unitId\": \"1\",\r\n \"ingredientName\": \"New Carrot\",\r\n \"ingredientPortion\": 0,\r\n \"ingredientCalorie\": 0,\r\n \"ingredientProtein\": 0,\r\n \"ingredientCarbonhydrate\": 0,\r\n \"ingredientSugar\": 0,\r\n \"ingredientFat\": 0,\r\n \"ingredientSodium\": 0,\r\n \"ingredientCalcium\": 0,\r\n \"ingredientCholesterol\": 0,\r\n \"ingredientFibre\": 0,\r\n \"ingredientSaturateFat\": 0,\r\n \"ingredientTransFat\": 0,\r\n \"ingredientIron\": 0,\r\n \"ingredientZinc\": 0,\r\n \"ingredientMagnesium\": 0,\r\n \"ingredientPotasium\": 0,\r\n \"ingredientRemark\": \"\",\r\n \"updCount\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{Host}}/update_userIngrdient",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"update_userIngrdient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_IngredientUpdateCount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/get_updateCount?ingredientId=1&userId=348aa54a-7257-434a-8f06-42fbb6d5428f",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"get_updateCount"
+					],
+					"query": [
+						{
+							"key": "ingredientId",
+							"value": "1"
+						},
+						{
+							"key": "userId",
+							"value": "348aa54a-7257-434a-8f06-42fbb6d5428f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createMenu",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"menuId\": \"1\",\r\n    \"userId\": \"348aa54a-7257-434a-8f06-42fbb6d5428f\",\r\n    \"menuName\": \"Salad\",\r\n    \"menuRemark\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{Host}}/create_menu",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"create_menu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createUserMenuIngredient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"menuId\": \"1\",\r\n    \"ingredientId\": \"3\",\r\n    \"userId\": \"348aa54a-7257-434a-8f06-42fbb6d5428f\",\r\n    \"unitId\": \"1\",\r\n    \"menuPortion\": 100,\r\n    \"menuRemark\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{Host}}/create_usermenuingredient",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"create_usermenuingredient"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_calculateduserIngredients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/get_calculateduserIngredients?userId=348aa54a-7257-434a-8f06-42fbb6d5428f&menuId=1",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"get_calculateduserIngredients"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "348aa54a-7257-434a-8f06-42fbb6d5428f"
+						},
+						{
+							"key": "menuId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_summerizeduserIngredients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/get_summerizeduserIngredients?userId=348aa54a-7257-434a-8f06-42fbb6d5428f&menuId=7a34c2b0-ba2e-4f4c-b28a-1d67d55689fc",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"get_summerizeduserIngredients"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "348aa54a-7257-434a-8f06-42fbb6d5428f"
+						},
+						{
+							"key": "menuId",
+							"value": "7a34c2b0-ba2e-4f4c-b28a-1d67d55689fc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_menu",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/get_menu?menuId=561255d3-682f-4e50-82cf-67220ffde34b&userId=348aa54a-7257-434a-8f06-42fbb6d5428f",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"get_menu"
+					],
+					"query": [
+						{
+							"key": "menuId",
+							"value": "561255d3-682f-4e50-82cf-67220ffde34b"
+						},
+						{
+							"key": "userId",
+							"value": "348aa54a-7257-434a-8f06-42fbb6d5428f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_UserMenuIngredient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/delete_UserMenuIngredient?menuId=999c25ba-9a60-4d0b-bb01-b81401333ede&userId=348aa54a-7257-434a-8f06-42fbb6d5428f",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"delete_UserMenuIngredient"
+					],
+					"query": [
+						{
+							"key": "menuId",
+							"value": "999c25ba-9a60-4d0b-bb01-b81401333ede"
+						},
+						{
+							"key": "userId",
+							"value": "348aa54a-7257-434a-8f06-42fbb6d5428f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_MenuIngredient",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/delete_MenuIngredient?menuId=2d066cda-b070-465c-9d6a-614dde92ff55&userId=348aa54a-7257-434a-8f06-42fbb6d5428f&ingredientId=9",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"delete_MenuIngredient"
+					],
+					"query": [
+						{
+							"key": "menuId",
+							"value": "2d066cda-b070-465c-9d6a-614dde92ff55"
+						},
+						{
+							"key": "userId",
+							"value": "348aa54a-7257-434a-8f06-42fbb6d5428f"
+						},
+						{
+							"key": "ingredientId",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update_Menu",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get_MenuUpdateCount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7omzndrf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{Host}}/get_MenuUpdateCount?menuId=b4f64957-a729-4369-a497-297d07394a2d",
+					"protocol": "http",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"get_MenuUpdateCount"
+					],
+					"query": [
+						{
+							"key": "menuId",
+							"value": "b4f64957-a729-4369-a497-297d07394a2d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_notselecteduserIngredients",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
